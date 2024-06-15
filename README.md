@@ -4,6 +4,29 @@
 
 Projekt "Elevator Control System" jest aplikacją do zarządzania systemem wind w budynku. Umożliwia dodawanie nowych wind, sterowanie ich ruchem oraz monitorowanie statusu każdej windy.
 
+## Opis algorytmu działania windy
+
+
+1. **Rozpoczęcie ruchu**: Winda rozpoczyna ruch w kierunku pierwszego wciśniętego przycisku, pamiętając ten kierunek.     
+
+2. **Dotarcie na piętro**: Gdy winda dotrze na określone piętro, zatrzymuje się i otwiera drzwi. Przycisk na tym piętrze jest oznaczany jako nieaktywny.    
+
+3. **Kontynuacja w tym samym kierunku**: Jeśli istnieją jeszcze piętra do odwiedzenia bez konieczności zawracania, winda kontynuuje ruch w tym samym kierunku.    
+
+4. **Zmiana kierunku ruchu**: Gdy wszystkie przyciski na piętrach w danym kierunku są już nieaktywne ale w przeciwnym są jeszcze piętra do odwiedzenia, winda zmienia kierunek.   
+   
+6. **Zakończenie trasy**: Gdy wszystkie piętra zostały odwiedzone, winda zatrzymuje się i czeka na kolejne wciśnięcie przycisku.
+
+7. **Obsługa przycisków "Up" i "Down"**: Windy posiadają przyciski "Up" i "Down" obok drzwi zamiast pojedynczego przycisku. W związku z tym algorytm musi uwzględniać, że drzwi będą otwierane tylko wtedy, gdy winda porusza się w odpowiednim kierunku (np. jeśli wciśnięto przycisk "Up" i winda porusza się w górę). Winda może jednak zrobić wyjątek i zatrzymać się, jeśli został naciśnięty przycisk o przeciwnym kierunku ale dalej już nie ma pięter do odwiedzenia (i tak musiałaby zawrócić).
+
+Algorytm ten nie wymaga obliczania całej ścieżki do celu, a jedynie ustalenia kolejnego kierunku ruchu.
+
+## Funkcjonalności
+
+- Dodawanie nowych wind do systemu.
+- Sterowanie ruchem wind (wywołanie windy na piętro).
+- Monitorowanie stanu poszczególnych wind (aktualne piętro, kierunek ruchu, kolejka pięter do odwiedzenia).   
+
 ## Technologie
 
 Projekt wykorzystuje następujące technologie:
@@ -18,8 +41,9 @@ Projekt wykorzystuje następujące technologie:
 
 Aby uruchomić aplikację, wymagane jest zainstalowanie:
 
-- Java 11+
-- Node.js (do uruchomienia frontendu)
+- Java 11+   
+- Maven   
+- Node.js  
 
 ### Instrukcje uruchomienia
 
@@ -54,19 +78,4 @@ Aby uruchomić aplikację, wymagane jest zainstalowanie:
    - Aplikacja frontendowa będzie dostępna pod adresem `http://localhost:3000`.
    - REST API backendu będzie dostępne pod adresem `http://localhost:8080/api`.
 
-## Funkcjonalności
-
-- Dodawanie nowych wind do systemu.
-- Sterowanie ruchem wind (wywołanie windy na piętro).
-- Monitorowanie statusu poszczególnych wind (aktualne piętro, kierunek ruchu).
-
-## Struktura projektu
-
-- **`elevatorBackend/`**: Katalog zawierający backend aplikacji Spring Boot.
-  - `src/`: Kod źródłowy backendu.
-  - `pom.xml`: Plik konfiguracyjny Maven.
-  
-- **`elevatorFrontend/`**: Katalog zawierający frontend aplikacji React.
-  - `src/`: Kod źródłowy frontendu.
-  - `package.json`: Plik konfiguracyjny npm.
 

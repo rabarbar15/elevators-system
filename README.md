@@ -17,7 +17,7 @@ Projekt "Elevator Control System" jest aplikacją do zarządzania systemem wind 
    
 6. **Zakończenie trasy**: Gdy wszystkie piętra zostały odwiedzone, winda zatrzymuje się i czeka na kolejne wciśnięcie przycisku.
 
-7. **Obsługa przycisków "Up" i "Down"**: Windy posiadają przyciski "Up" i "Down" obok drzwi zamiast pojedynczego przycisku. W związku z tym algorytm musi uwzględniać, że drzwi będą otwierane tylko wtedy, gdy winda porusza się w odpowiednim kierunku (np. jeśli wciśnięto przycisk "Up" i winda porusza się w górę). Winda może jednak zrobić wyjątek i zatrzymać się, jeśli został naciśnięty przycisk o przeciwnym kierunku ale dalej już nie ma pięter do odwiedzenia (i tak musiałaby zawrócić).
+7. **Obsługa przycisków "Up" i "Down"**: Windy posiadają przyciski "Up" i "Down" obok drzwi zamiast pojedynczego przycisku. W związku z tym algorytm musi uwzględniać, że drzwi będą otwierane tylko wtedy, gdy winda porusza się w odpowiednim kierunku (np. jeśli wciśnięto przycisk "Up" i winda porusza się w górę). Winda może jednak zrobić wyjątek i zatrzymać się, jeśli został naciśnięty przycisk o przeciwnym kierunku, ale dalej już nie ma pięter do odwiedzenia (winda i tak musiałaby zawrócić).
 
 Algorytm ten nie wymaga obliczania całej ścieżki do celu, a jedynie ustalenia kolejnego kierunku ruchu.
 
